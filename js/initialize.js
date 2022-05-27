@@ -4,16 +4,20 @@ const inputField = document.querySelector(".search-input");
 const containder = document.querySelector(".main-album-container");
 const resultEle = document.querySelector(".main-album-result");
 const spinner = document.querySelector(".loader");
+const warningInfo = document.querySelector(".empty-warning");
 
 inputField.onfocus = () => {
-    if (inputField.value === "") {
-        //dicplay warning
-    }
     onFocused = true;
+}
+
+inputField.onblur = () => {
+    onFocused = false;
+    warningInfo.style.display = "none";
 }
 
 inputField.addEventListener("onfocusout", () => {
     onFocused = false;
+    warningInfo.style.display = "none";
 })
 
 function renderImg(url) {
@@ -47,6 +51,12 @@ function initializeContainer() {
 
 document.addEventListener('keydown', (e) => {
     if (onFocused && e.code === "Enter") {
-        fetachData(inputField.value, initializeContainer, renderAlbums, resultEle, spinner);
+        if (inputField.value.length) {
+            fetachData(inputField.value, initializeContainer, renderAlbums, resultEle, spinner);
+        }
+        else {
+            // display warning info
+            warningInfo.style.display = "block";
+        }
     }
 });
