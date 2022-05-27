@@ -2,6 +2,9 @@ let onFocused = false;
 
 const inputField = document.querySelector(".search-input");
 const containder = document.querySelector(".main-album-container");
+const resultEle = document.querySelector(".main-album-result");
+const spinner = document.querySelector(".loader");
+
 inputField.onfocus = () => {
     if (inputField.value === "") {
         //dicplay warning
@@ -44,6 +47,6 @@ function initializeContainer() {
 
 document.addEventListener('keydown', (e) => {
     if (onFocused && e.code === "Enter") {
-        fetachData(inputField.value, initializeContainer, renderAlbums);
+        fetachData(inputField.value, initializeContainer, renderAlbums, resultEle, spinner);
     }
 });
