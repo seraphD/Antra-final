@@ -4,7 +4,9 @@
     background-color: cadetblue;
     display: flex;
     justify-content: center;
-    align-items: center; 
+    align-items: center;
+    position: fixed;
+    top: 0;
 }
 
 .main-album-header {
