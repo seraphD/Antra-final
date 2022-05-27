@@ -1,0 +1,26 @@
+.main-album-container {
+    width: 80%;
+    margin: auto;
+    padding-top: 30px;
+    display: grid;
+    grid-template-columns: repeat( auto-fit, minmax(180px, 1fr) );
+}
+
+.album-card {
+    width: 150px;
+    height: 250px;
+    padding: 5px;
+    background-color: lightgray;
+    border: 1px solid cadetblue;
+    margin-bottom: 20px;
+}
+
+.album-name {
+    text-align: center;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.album-card img {
+    width: 100%;
+}

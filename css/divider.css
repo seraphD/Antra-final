@@ -1,0 +1,15 @@
+.divider {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    font-size: 0.4rem;
+    color:darkcyan;
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: darkcyan;
+}
