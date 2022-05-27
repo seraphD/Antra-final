@@ -1,9 +1,10 @@
 .divider {
     display: flex;
     justify-content: center;
-    width: 100%;
+    width: 80%;
     font-size: 0.4rem;
     color:darkcyan;
+    margin: 0 auto;
 }
 
 .divider::before,

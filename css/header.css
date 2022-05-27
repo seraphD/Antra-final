@@ -56,6 +56,4 @@
     border-style: solid;
     border-width: 0 10px 10px 10px;
     border-color: transparent transparent white transparent;
-    transition-duration: 0.3s;
-    transition-property: transform;
 }

@@ -15,11 +15,6 @@ inputField.onblur = () => {
     warningInfo.style.display = "none";
 }
 
-inputField.addEventListener("onfocusout", () => {
-    onFocused = false;
-    warningInfo.style.display = "none";
-})
-
 function renderImg(url) {
     const imgElement = document.createElement("img");
     imgElement.src = url;
