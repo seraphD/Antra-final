@@ -23,6 +23,7 @@ inputField.onblur = () => {
 }
 
 searchIcon.onclick = () => {
+    data.length = 0;
     if (inputField.value.length) {
         ARTIST_NAME = inputField.value;
         fetachData(inputField.value, initializeContainer, renderAlbums, resultEle, spinner);
@@ -71,12 +72,12 @@ moreBtn.onclick = () => {
 }
 
 document.addEventListener('keydown', async (e) => {
+    data.length = 0;
     if (onFocused && e.code === "Enter") {
         if (inputField.value.length) {
             ARTIST_NAME = inputField.value;
             curInx = initLoaded;
             const fetched = await fetachData(inputField.value, initializeContainer, renderAlbums, resultEle, spinner, initLoaded);
-            // console.log(fetched);
             data.push(...fetched.results);
             moreBtn.style.display = curInx < data.length ? "block" : "none";
         }
