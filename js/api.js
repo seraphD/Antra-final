@@ -1,10 +1,10 @@
-function fetachData(ARTIST_NAME, initializeContainer, renderAlbum, resultEle, spinner) {
+function fetachData(ARTIST_NAME, initializeContainer, renderAlbum, resultEle, spinner, intialLoaded) {
     // hide result header and display spinner
     resultEle.innerHTML = "";
     spinner.style.display = "block";
     
     const URL = `https://itunes.apple.com/search?term=${ARTIST_NAME}&media=music&entity=album&attribute=artistTerm&limit=200`
-    fetchJsonp(URL)
+    return fetchJsonp(URL)
     .then(res => {
         // initialize container
         initializeContainer();
@@ -15,10 +15,15 @@ function fetachData(ARTIST_NAME, initializeContainer, renderAlbum, resultEle, sp
 
         // change result head and hide spinner
         spinner.style.display = "none";
-        resultEle.innerHTML = `${resultCount} results for "${ARTIST_NAME}"`;
+        resultEle.innerHTML = `${intialLoaded > resultCount ? resultCount : intialLoaded}/${resultCount} results for "${ARTIST_NAME}"`;
         resultEle.style.display = "block";
 
         // render album cards
-        results.map(album => renderAlbum(album))
-    });
+        results.slice(0, intialLoaded).map(album => renderAlbum(album));
+        return json;
+    })
+    .then(data => {
+        // console.log(data);
+        return data;
+    })
 }

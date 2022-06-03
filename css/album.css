@@ -24,3 +24,9 @@
 .album-card img {
     width: 100%;
 }
+
+.more-btn {
+    display: none;
+    width: 100px;
+    height: 30px;
+}
